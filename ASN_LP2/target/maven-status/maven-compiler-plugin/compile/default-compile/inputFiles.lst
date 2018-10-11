@@ -1,0 +1,8 @@
+/home/ppgmz/Documents/hadoop_lab_2/ASN_LP2/src/main/java/mx/iteso/desi/cloud/hw2/GeocodeReducer.java
+/home/ppgmz/Documents/hadoop_lab_2/ASN_LP2/src/main/java/mx/iteso/desi/cloud/Geocode.java
+/home/ppgmz/Documents/hadoop_lab_2/ASN_LP2/src/main/java/mx/iteso/desi/cloud/Triple.java
+/home/ppgmz/Documents/hadoop_lab_2/ASN_LP2/src/main/java/mx/iteso/desi/cloud/ParseTriple.java
+/home/ppgmz/Documents/hadoop_lab_2/ASN_LP2/src/main/java/mx/iteso/desi/cloud/hw2/GeocodeDriver.java
+/home/ppgmz/Documents/hadoop_lab_2/ASN_LP2/src/main/java/mx/iteso/desi/cloud/hw2/GeocodeMapper.java
+/home/ppgmz/Documents/hadoop_lab_2/ASN_LP2/src/main/java/mx/iteso/desi/cloud/ParserCoordinates.java
+/home/ppgmz/Documents/hadoop_lab_2/ASN_LP2/src/main/java/mx/iteso/desi/cloud/GeocodeWritable.java

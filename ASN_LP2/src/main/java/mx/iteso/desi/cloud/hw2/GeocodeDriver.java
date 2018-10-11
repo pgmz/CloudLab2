@@ -2,6 +2,9 @@ package mx.iteso.desi.cloud.hw2;
 
 import mx.iteso.desi.cloud.GeocodeWritable;
 import mx.iteso.desi.cloud.Triple;
+
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.fs.Path;
 import org.apache.hadoop.fs.FSDataInputStream;
@@ -26,15 +29,13 @@ public class GeocodeDriver {
 		Configuration conf = new Configuration();
 
     //set which cities to select on Mapper
-    FileSystem fs = FileSystem.get(conf);
-    FSDataInputStream inputStream = fs.open(new Path(args[2]));
+  //File file = new File(args[2]);
     
     //this string will be stored in conf, so later, we are able to recover from context.
     String totalCoordinates = "";
 
     //append all "city,lat,long" values
-    String line;
-    while((line = inputStream.readLine()) != null){
+    for(String line : Files.readAllLines(Paths.get(".", args[2]))){
       totalCoordinates = totalCoordinates + line + ";";
     }
 

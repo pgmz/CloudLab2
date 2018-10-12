@@ -29,13 +29,15 @@ public class GeocodeDriver {
 		Configuration conf = new Configuration();
 
     //set which cities to select on Mapper
-  //File file = new File(args[2]);
-    
+    FileSystem fs = FileSystem.get(conf);
+    FSDataInputStream inputStream = fs.open(new Path(args[2]));
+
     //this string will be stored in conf, so later, we are able to recover from context.
     String totalCoordinates = "";
 
     //append all "city,lat,long" values
-    for(String line : Files.readAllLines(Paths.get(".", args[2]))){
+    String line;
+    while((line = inputStream.readLine()) != null){
       totalCoordinates = totalCoordinates + line + ";";
     }
 

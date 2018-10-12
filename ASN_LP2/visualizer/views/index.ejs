@@ -1,7 +1,7 @@
 <html>
   <head>
     <title>HW2 visualization</title>
-    <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true"></script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBGKgu4jZjtlqhsH65t_UYR9bFaRSdratM&sensor=true"type="text/javascript"></script>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <script type="text/javascript">
       var map;
@@ -49,12 +49,12 @@
             // Each line needs to be parsed futher
           
             var thisLine = array[i].split(/\s+/);
-            var position = thisLine[0];
-            var url = thisLine[1];
-            var photo = thisLine[2];
-	    var positionLine = position.split(/[(,)]/);
-	    var latitude = positionLine[1];
-	    var longitude = positionLine[2];
+            var position = thisLine[1];
+            var url = thisLine[2];
+            var photo = thisLine[3];
+            var positionLine = position.split(/[(,)]/);
+	          var latitude = positionLine[1];
+	          var longitude = positionLine[2];
             
             // Now we create a marker at the location that was specified in the line
 
@@ -76,7 +76,10 @@
             // The DBpedia URL is already available as 'url' at this point, and the 
             // image URL is available as 'photo'. 
             
-            var contentString = 'TODO: Replace this (in index.ejs) with your HTML code';
+            var title = url.split("/");
+            title = title[title.length - 1];
+            var contentString = '<h3><a href="' + url + '">' + title + '</a></h3>'
+            +'<br>'+'<img src="' + photo + '" alt="Loading..." height="150" width="150"> ';
 
             // Now we create the info window (which is initially hidden)...
 

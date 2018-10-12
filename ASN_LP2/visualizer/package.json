@@ -9,8 +9,8 @@
   "author": "",
   "license": "BSD-2-Clause",
   "dependencies": {
-    "express": "~3.3.5",
     "ejs": "*",
+    "express": "^4.16.3",
     "geohash": "*"
   }
 }

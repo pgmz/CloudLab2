@@ -1,8 +1,6 @@
-mx/iteso/desi/cloud/GeocodeWritable.class
-mx/iteso/desi/cloud/hw2/GeocodeMapper.class
-mx/iteso/desi/cloud/Geocode.class
-mx/iteso/desi/cloud/ParseTriple.class
-mx/iteso/desi/cloud/hw2/GeocodeReducer.class
-mx/iteso/desi/cloud/ParserCoordinates.class
-mx/iteso/desi/cloud/Triple.class
-mx/iteso/desi/cloud/hw2/GeocodeDriver.class
+mx\iteso\desi\cloud\hw2\GeocodeMapper.class
+mx\iteso\desi\cloud\ParseTriple.class
+mx\iteso\desi\cloud\GeocodeWritable.class
+mx\iteso\desi\cloud\ParserCoordinates.class
+mx\iteso\desi\cloud\Geocode.class
+mx\iteso\desi\cloud\Triple.class

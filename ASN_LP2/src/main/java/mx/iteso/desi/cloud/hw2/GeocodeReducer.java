@@ -15,6 +15,8 @@ public class GeocodeReducer extends Reducer<Text, GeocodeWritable, Text, Text> {
 
     String geoString = "";
     String imageString = "";
+
+    //for the geocodes received, get Image and Geocode data
     for(GeocodeWritable geocode : geocodeWritable){
       if(geocode.getName().toString().equals("geocode")){
         geoString = geocode.toString();
@@ -22,6 +24,8 @@ public class GeocodeReducer extends Reducer<Text, GeocodeWritable, Text, Text> {
         imageString = geocode.getName().toString();
       }
     }
+
+    //if for this key there is a geocode and a image, then write to output
     if(!geoString.equals("") && !imageString.equals("")){
       context.write(new Text(""), new Text(geoString + "\t" + text.toString() + "\t" + imageString));
     }

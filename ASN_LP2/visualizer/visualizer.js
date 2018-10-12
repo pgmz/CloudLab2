@@ -1,6 +1,8 @@
 var express = require("express");
 var app = express();
-fs = require('fs')
+var aws = require('aws-sdk');
+var fs = require('fs');
+var s3 = new aws.S3();
 
 var geoData;
 
@@ -9,20 +11,38 @@ var geoData;
 // in the file, which we then remember in the 'geoData' variable. Error 34
 // is 'file not found'.
 
-fs.readFile('./part-r-00000', 'utf8', function (err,data) {
-  if (err) {
-    if (err.errno == 34) {
-      console.log("Cannot find the file 'part-r-00000' - did you copy it from ");
-      console.log("your 'output' directory to the current directory?");
-      console.log("Try running 'cp ../output/part-r-00000 .'");
-      process.exit(1);
+var paramsBucker = {
+  Bucket: "emr-cloudlab2"
+ };
+
+ //get every object on bucket
+ s3.listObjects(paramsBucker, function(err, data){
+  if (err){
+    console.log(err, err.stack); // an error occurred
+  } else{
+
+    //for every object that meets the pattern "output/part", get data
+    for(obj in data.Contents){
+      if(data.Contents[obj].Key.includes("output/part")){
+
+        var params = {
+          Bucket: "emr-cloudlab2",
+          Key: data.Contents[obj].Key
+        };
+
+        //append output file, to geocode
+        s3.getObject(params, function(err, data) {
+          if (err){
+            console.log(err, err.stack); // an error occurred
+          }else{
+            geoData = geoData + data.Body.toString('utf-8');           // successful response
+          }
+        });
+      }
     }
-    
-    console.log("Cannot read from 'part-r-00000': "+err);
-    process.exit(1);
   }
-  geoData = data;
-});
+ });
+
 
 // The line below tells Node to include a special header in the response that 
 // tells the browser not to cache any files. That way, you do not need to 

@@ -13,8 +13,12 @@ public class GeocodeMapper extends Mapper<LongWritable, Text, Text, GeocodeWrita
 	private ArrayList<Geocode> citites;
 
 	protected void setup(Context context) throws IOException, InterruptedException{
+
+		//get configuration
 		Configuration conf = context.getConfiguration();
 		citites = new ArrayList<Geocode>();
+
+		//get values for a key "city", and parse it into Geocodes
 		for (String city : conf.get("city").split(";")){
 			String [] dataCity = city.split(",");
 			citites.add(new Geocode(dataCity[0], Double.valueOf(dataCity[1]), Double.valueOf(dataCity[2])));

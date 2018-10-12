@@ -1,15 +1,10 @@
 package mx.iteso.desi.cloud.hw2;
 
 import mx.iteso.desi.cloud.GeocodeWritable;
-import mx.iteso.desi.cloud.Triple;
-
-import java.nio.file.Files;
-import java.nio.file.Paths;
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.fs.Path;
 import org.apache.hadoop.fs.FSDataInputStream;
 import org.apache.hadoop.fs.FileSystem;
-import org.apache.hadoop.io.IntWritable;
 import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mapreduce.Job;
 import org.apache.hadoop.mapreduce.lib.input.FileInputFormat;
@@ -30,6 +25,7 @@ public class GeocodeDriver {
 
     //set which cities to select on Mapper
     FileSystem fs = FileSystem.get(conf);
+
     FSDataInputStream inputStream = fs.open(new Path(args[2]));
 
     //this string will be stored in conf, so later, we are able to recover from context.

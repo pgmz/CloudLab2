@@ -1,0 +1,10 @@
+Este código hace dos cosas:
+Código JAVA, si corres el runme.sh
+se crea el JAR necesario y en conjunto con
+los datasets y el archivo de ciudades,
+creará en la carpeta output los puntos con
+imagenes a menos ded 5km de las ciudades elegidas
+También, con el código en visualizer, usando la
+API KEY, despliega las posiciones e imágenes en
+un mapa de Google. Las posiciones e imágenes,
+las toma de S3.
